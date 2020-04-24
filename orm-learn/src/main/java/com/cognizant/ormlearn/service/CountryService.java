@@ -48,4 +48,15 @@ public class CountryService {
 	public void deleteCountry(String code) {
 		countryRepository.deleteById(code);
 	}
+	
+	@Transactional
+	public List<Country> findByCountryCantaining(String str){
+		return countryRepository.findByNameContaining(str);
+	}
+	
+	@Transactional
+	public List<Country> findByCountryStarting(String str){
+		return countryRepository.findByNameStartingWith(str);
+	}
+	
 }
